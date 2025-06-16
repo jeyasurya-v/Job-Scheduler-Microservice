@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: jobscheduler_postgres
+    environment:
+      POSTGRES_USER: jobscheduler
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: jobscheduler_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jobscheduler -d jobscheduler_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Job Scheduler Application
+  app:
+    build: .
+    container_name: jobscheduler_app
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=jobscheduler
+      - DB_PASSWORD=password123
+      - DB_NAME=jobscheduler_db
+      - DB_SSLMODE=disable
+      - SERVER_PORT=8080
+      - SERVER_HOST=0.0.0.0
+      - APP_ENV=development
+      - LOG_LEVEL=info
+      - SCHEDULER_ENABLED=false
+      - MAX_CONCURRENT_JOBS=10
+      - HEALTH_CHECK_URL=https://httpbin.org/status/200
+      - HEALTH_CHECK_TIMEOUT=30s
+      - REPORTS_DIR=/app/reports
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./reports:/app/reports
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

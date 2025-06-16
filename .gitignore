@@ -1,0 +1,274 @@
+# Job Scheduler Microservice - .gitignore
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+
+# Build artifacts
+/bin/
+/build/
+/dist/
+server
+job-scheduler
+main
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.staging
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files
+*.log
+logs/
+application.log
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Coverage reports
+coverage.out
+coverage.html
+coverage.txt
+
+# Profiling data
+*.prof
+*.pprof
+
+# Air live reload tool
+tmp/
+
+# Docker volumes and data
+docker-data/
+postgres-data/
+.docker/
+
+# Reports directory (if generated)
+reports/
+*.pdf
+*.csv
+*.xlsx
+
+# Backup files
+*.bak
+*.backup
+
+# Configuration overrides
+config.local.yaml
+config.local.yml
+config.local.json
+
+# SSL certificates and keys
+*.pem
+*.key
+*.crt
+*.cert
+
+# Kubernetes secrets
+secrets/
+*.secret
+
+# Terraform files (if used for infrastructure)
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# Node.js (if frontend is added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (if scripts are added)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Documentation build artifacts
+docs/_build/
+site/
+
+# Test artifacts
+test-results/
+test-reports/
+
+# Performance test results
+*.jmx
+*.jtl
+
+# Local development overrides
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Migration backup files
+migrations/*.backup
+
+# Generated API documentation
+api-docs/
+swagger-ui/
+
+# Local scripts
+run-local.sh
+debug.sh
+local-*.sh
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Local environment overrides
+.envrc
+
+# direnv
+.envrc
+
+# asdf version manager
+.tool-versions
+
+# Local development certificates
+localhost.pem
+localhost-key.pem
+
+# Monitoring and metrics data
+metrics/
+prometheus-data/
+grafana-data/
+
+# Cache directories
+.cache/
+cache/
+
+# Local database dumps
+*.sql.gz
+*.dump
+
+# Compiled Object files
+*.o
+*.a
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+# cgo generated files
+_cgo_gotypes.go
+_cgo_export.*
+
+# Test coverage
+profile.out
+
+# Delve debugger
+__debug_bin
+
+# GoLand
+.idea/
+
+# Local development tools
+.air.toml
+air_tmp/
+
+# Mockery generated files (if using mockery for mocks)
+mocks/
+
+# Wire generated files (if using wire for DI)
+wire_gen.go
+
+# Protocol buffer generated files
+*.pb.go
+
+# Vendor directory (uncomment if using vendor)
+# vendor/
+
+# Go modules download cache
+# Uncomment if you want to ignore the modules download cache
+# This is generally not recommended as it can slow down builds
+# $GOPATH/pkg/mod/
+
+# Local testing scripts
+test-local.sh
+benchmark.sh
+
+# Performance profiling
+cpu.prof
+mem.prof
+block.prof
+mutex.prof
+
+# Local configuration for different environments
+config.dev.yaml
+config.staging.yaml
+config.prod.yaml
